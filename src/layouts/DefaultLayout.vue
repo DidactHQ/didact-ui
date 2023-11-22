@@ -37,10 +37,10 @@
             </svg>
             <span class="sr-only">Toggle sidebar</span>
           </button>
-          <a href="https://flowbite.com" class="flex items-center justify-between mr-4">
+          <router-link to="/" class="flex items-center justify-between mr-4">
             <img src="/favicon.svg" class="mr-3 h-6 sm:h-8" alt="Didact Logo" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap text-orange-500 dark:text-white">Didact</span>
-          </a>
+          </router-link>
           <form action="#" method="GET" class="hidden md:block md:pl-2">
             <label for="topbar-search" class="sr-only">Search</label>
             <div class="relative md:w-64 md:w-96">
@@ -947,19 +947,11 @@
               href="#"
               class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
-              <img src="/secrets-icon.svg" class="w-6 h-6" alt="secrets icon" />
+              <!-- <img src="/secrets-icon.svg" class="w-6 h-6" alt="secrets icon" /> -->
+              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.5 8V4.5a3.5 3.5 0 1 0-7 0V8M8 12v3M2 8h12a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/>
+              </svg>
               <span class="ml-3">Secrets</span>
-            </a>
-          </li>
-
-          <!-- Notification settings -->
-          <li>
-            <a
-              href="#"
-              class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-            >
-              <img src="/notifications-icon.svg" class="w-6 h-6" alt="notifications icon" />
-              <span class="ml-3">Notifications</span>
             </a>
           </li>
 
