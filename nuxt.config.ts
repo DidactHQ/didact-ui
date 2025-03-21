@@ -22,9 +22,12 @@ export default defineNuxtConfig({
         }
     },
     components: {
+      include: '*',
       // Need to temporarily exclude PrimeVue form components because of npm install bug.
       // See https://github.com/primefaces/primevue/issues/7434.
-      exclude: ['Form', 'FormField']
+      // Also need to exclude Editor and Chart because of weird build issues.
+      // See https://github.com/primefaces/primevue-nuxt-module/issues/16#issuecomment-1794482993.
+      exclude: ['Form', 'FormField', 'Editor', 'Chart']
     }
   },
   ssr: false
