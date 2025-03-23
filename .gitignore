@@ -23,6 +23,8 @@ logs
 .env.*
 !.env.example
 
+# Ignore Nuxt build output in dotnet wwwroot
+dotnet-app/DidactUi/wwwroot/*
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
