@@ -30,5 +30,10 @@ export default defineNuxtConfig({
       exclude: ['Form', 'FormField', 'Editor', 'Chart']
     }
   },
-  ssr: false
+  ssr: false,
+  nitro: {
+    output: {
+      publicDir: '../dotnet-app/DidactUi/wwwroot'
+    }
+  }
 })
