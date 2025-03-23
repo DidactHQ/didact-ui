@@ -4,6 +4,15 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	<PublishSingleFile>true</PublishSingleFile>
+	<SelfContained>true</SelfContained>
+	<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+	<PublishTrimmed>false</PublishTrimmed>
+	<!-- Avoid trimming to ensure all dependencies are included -->
+	<EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+	<!-- Optional: Compress output -->
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	<!-- Ensure all NuGet assemblies are included -->
   </PropertyGroup>
 
   <ItemGroup>
