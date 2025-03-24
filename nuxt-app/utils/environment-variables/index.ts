@@ -1,8 +1,7 @@
 import axios from "axios";
 import { isDev } from "../environment";
 
-const runtimeConfig = useRuntimeConfig();
-const devBaseUrl = runtimeConfig.public.environmentVariablesDevBaseUrl;
+const devBaseUrl: string = import.meta.env.VITE_ENVIRONMENT_VARIABLES_DEV_BASE_URL;
 
 interface EnvironmentVariables {
     test: string
