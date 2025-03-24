@@ -1,21 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DidactUi.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DidactUi.Controllers
 {
     public class EnvironmentVariablesController : ControllerBase
     {
         private readonly ILogger<EnvironmentVariablesController> _logger;
+        private readonly UiSettings _uiSettings;
 
-        public EnvironmentVariablesController(ILogger<EnvironmentVariablesController> logger)
+        public EnvironmentVariablesController(ILogger<EnvironmentVariablesController> logger, UiSettings uiSettings)
         {
             _logger = logger;
+            _uiSettings = uiSettings;
         }
 
         [HttpGet("environment-variables")]
         public IActionResult GetEnvironmentVariables()
         {
-            var envVariables = new { test = "Dummy value for Nuxt." };
-            return Ok(envVariables);
+            return Ok(_uiSettings);
         }
     }
 }
