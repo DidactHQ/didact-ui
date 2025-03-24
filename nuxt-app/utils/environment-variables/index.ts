@@ -4,7 +4,7 @@ import { isDev } from "../environment";
 const devBaseUrl: string = import.meta.env.VITE_ENVIRONMENT_VARIABLES_DEV_BASE_URL;
 
 interface EnvironmentVariables {
-    test: string
+    didactEngineBaseUrl: string
 }
 
 /**

@@ -5,6 +5,6 @@ namespace DidactUi.Services
     public class UiSettings
     {
         [JsonPropertyName("didactEngineBaseUrl")]
-        public required string DidactEngineBaseUrl { get; set; }
+        public string DidactEngineBaseUrl { get; set; }
     }
 }
