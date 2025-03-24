@@ -35,5 +35,10 @@ export default defineNuxtConfig({
     output: {
       publicDir: '../dotnet-app/DidactUi/wwwroot'
     }
+  },
+  runtimeConfig: {
+    public: {
+      environmentVariablesDevBaseUrl: ''
+    }
   }
 })
