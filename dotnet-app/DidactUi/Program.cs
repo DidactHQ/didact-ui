@@ -1,16 +1,43 @@
 using DidactUi.Exceptions;
 using DidactUi.Services;
 using Microsoft.Extensions.FileProviders;
+using Spectre.Console;
 using System.Diagnostics;
 using System.Reflection;
+
+var assembly = Assembly.GetExecutingAssembly();
+var assemblyName = assembly.GetName().Name;
+var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+#region Configure Spectre Console decorator.
+
+AnsiConsole.Write(
+    new FigletText("Didact UI")
+        .LeftJustified()
+        .Color(Color.Orange1));
+
+// Create a table
+var table = new Table();
+table.AddColumn("");
+table.AddColumn(new TableColumn(""));
+table.AddRow("Name", "Didact UI");
+table.AddRow("Version", assembly.GetName().Version!.ToString());
+table.AddRow("Environment", environment ?? string.Empty);
+
+var padder = new Padder(table).PadBottom(2).PadTop(0);
+
+var grid = new Grid();
+grid.AddColumn();
+grid.AddRow(padder);
+
+AnsiConsole.Write(grid);
+
+#endregion
 
 var builder = WebApplication.CreateBuilder(args);
 
 #region Read appsettings.json as an embedded resource.
 
-var assembly = Assembly.GetExecutingAssembly();
-var assemblyName = assembly.GetName().Name;
-var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 // Support multi-environment appsettings files.
 var resourceFileName = string.IsNullOrEmpty(environment)
     ? $"{assemblyName}.appsettings.json"
