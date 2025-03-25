@@ -2,7 +2,7 @@
   <div>
     <NuxtRouteAnnouncer />
     <NuxtWelcome />
-    <div class="m-16">
+    <!-- <div class="m-16">
       <Button label="Verify" />
       <Card style="width: 25rem; overflow: hidden">
     <template #header>
@@ -22,6 +22,13 @@
         </div>
     </template>
 </Card>
-    </div>
+    </div> -->
   </div>
 </template>
+
+<script setup lang="ts">
+import { getEnvironmentVariables } from './utils/environment-variables';
+
+const environmentVariables = await getEnvironmentVariables();
+console.log('The dummy env variable is: ', environmentVariables.didactEngineBaseUrl);
+</script>
