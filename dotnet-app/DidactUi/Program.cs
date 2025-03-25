@@ -5,6 +5,7 @@ using Spectre.Console;
 using System.Diagnostics;
 using System.Reflection;
 
+var applicationName = "Didact UI";
 var assembly = Assembly.GetExecutingAssembly();
 var assemblyName = assembly.GetName().Name;
 var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
@@ -12,7 +13,7 @@ var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 #region Configure Spectre Console decorator.
 
 AnsiConsole.Write(
-    new FigletText("Didact UI")
+    new FigletText(applicationName)
         .LeftJustified()
         .Color(Color.Orange1));
 
@@ -20,7 +21,7 @@ AnsiConsole.Write(
 var table = new Table();
 table.AddColumn("");
 table.AddColumn(new TableColumn(""));
-table.AddRow("Name", "Didact UI");
+table.AddRow("Name", applicationName);
 table.AddRow("Version", assembly.GetName().Version!.ToString());
 table.AddRow("Environment", environment ?? string.Empty);
 
