@@ -380,3 +380,4 @@ FodyWeavers.xsd
 
 /dotnet-app/DidactUi/Properties/PublishProfiles
 /dotnet-app/DidactUi/DidactUi.csproj.user
+/dotnet-app/DidactUi/.config/dotnet-tools.json
