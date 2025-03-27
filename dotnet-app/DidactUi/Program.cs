@@ -5,27 +5,37 @@ using Spectre.Console;
 using System.Diagnostics;
 using System.Reflection;
 
+#region App metadata
+
 var applicationName = "Didact UI";
+var themeColor = new Color(249, 115, 22);
 var assembly = Assembly.GetExecutingAssembly();
 var assemblyName = assembly.GetName().Name;
 var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+var settingsFilename = "uisettings.json";
+
+#endregion
 
 #region Configure Spectre Console decorator.
 
-AnsiConsole.Write(
-    new FigletText(applicationName)
-        .LeftJustified()
-        .Color(Color.Orange1));
+var figletText = new FigletText(applicationName).LeftJustified().Color(themeColor);
+AnsiConsole.Write(figletText);
 
 // Create a table
-var table = new Table();
+var table = new Table().HideHeaders();
 table.AddColumn("");
 table.AddColumn(new TableColumn(""));
 table.AddRow("Name", applicationName);
 table.AddRow("Version", assembly.GetName().Version!.ToString());
+table.AddRow("Start time", DateTime.UtcNow.ToString("O"));
+table.AddRow("Process Id", Environment.ProcessId.ToString());
+table.AddRow("OS version", Environment.OSVersion.ToString());
+table.AddRow("Machine name", Environment.MachineName);
+table.AddRow("Username", Environment.UserName);
 table.AddRow("Environment", environment ?? string.Empty);
+table.BorderStyle(new Style(themeColor));
 
-var padder = new Padder(table).PadBottom(2).PadTop(0);
+var padder = new Padder(table).PadBottom(1).PadTop(0);
 
 var grid = new Grid();
 grid.AddColumn();
@@ -63,7 +73,7 @@ var exePath = Process.GetCurrentProcess().MainModule?.FileName;
 var exeDirectory = Path.GetDirectoryName(exePath)!;
 
 // Define the path to UiSettings.json
-var uiSettingsPath = Path.Combine(exeDirectory, "uisettings.json");
+var uiSettingsPath = Path.Combine(exeDirectory, settingsFilename);
 
 // Build configuration
 var uiSettingsIConfiguration = new ConfigurationBuilder()
