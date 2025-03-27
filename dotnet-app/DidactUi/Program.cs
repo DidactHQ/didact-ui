@@ -13,6 +13,8 @@ var assembly = Assembly.GetExecutingAssembly();
 var assemblyName = assembly.GetName().Name;
 var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 var settingsFilename = "uisettings.json";
+var urls = Environment.GetEnvironmentVariable("ASPNETCORE_URLS");
+var url = string.IsNullOrEmpty(urls) ? string.Empty : urls.Split(';').First();
 
 #endregion
 
@@ -33,6 +35,8 @@ table.AddRow("OS version", Environment.OSVersion.ToString());
 table.AddRow("Machine name", Environment.MachineName);
 table.AddRow("Username", Environment.UserName);
 table.AddRow("Environment", environment ?? string.Empty);
+if (!string.IsNullOrEmpty(url))
+    table.AddRow("Dashboard", url);
 table.BorderStyle(new Style(themeColor));
 
 var padder = new Padder(table).PadBottom(1).PadTop(0);
